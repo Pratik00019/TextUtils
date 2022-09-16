@@ -1,0 +1,19 @@
+// to push new repository
+
+git config --global user.name "Pratik Padalkar"
+
+git config --global user.email "padalkarpratik19@gmail.com"
+
+touch .gitignore // and add the files that shouldnt be updated on github
+
+git init
+
+git commit -m "Initial Commit"
+
+git status
+ 
+ssh-keygen -t ed25519 -C "your_email@padalkarpratik19@gmail.com"
+ 
+cat c/Users/HP/.ssh/id_ed25519.pub
+
+git push origin master

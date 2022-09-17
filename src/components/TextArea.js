@@ -7,10 +7,13 @@ export default function TextArea(props) {
     const handleonclick=()=>{
         let newText=text.toUpperCase();
         setText(newText);
+        console.log("upper")
+        props.showAlert("Converted to Upper Case!","success");
     }
     const handleonclicklower=()=>{
         let newText=text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to Lower Case!","success");
     }
     const handleoncapital=()=>{
         let e=""
@@ -29,14 +32,17 @@ export default function TextArea(props) {
               e+=" ";
         });
         setText(e);
+        props.showAlert("First letters have been capitalized!","success");
     }
 
    const handleonchange=(event)=>{
     setText(event.target.value);
+    
    }
    const clearText=()=>{
     let a="";
     setText(a);
+     props.showAlert("Text Cleared!","success");
    }
 
    const copytext=()=>{
@@ -44,6 +50,7 @@ export default function TextArea(props) {
     var text=document.getElementById("my_box");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to clipboard!","success");
    }
     const [text,setText]=useState("");
 
@@ -58,7 +65,7 @@ export default function TextArea(props) {
         })
         return(
             <div>
-                {len-c} words and {text.length} characters;  
+                {len-c} words and {text.length} characters
                 <p>{0.008 * (len-c)} Minutes to read </p>
             </div>
         )
@@ -87,7 +94,6 @@ export default function TextArea(props) {
             <p id="id1"></p>
             <h3>Preview</h3>
             <p>{text.length===0?"First enter some text above to display preview":text}</p>
-        
         </div>
         </>
   )
